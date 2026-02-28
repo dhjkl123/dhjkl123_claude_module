@@ -1,5 +1,5 @@
 ﻿# register-skills.ps1
-# dhjkl123_skills 레포의 스킬을 ~/.claude/skills/ 및 ~/.claude/commands/ 에 등록하는 스크립트
+# dhjkl123_skills 레포의 스킬을 ~/.claude/skills/ 에 등록하는 스크립트
 
 $prevOutputEncoding = [Console]::OutputEncoding
 $prevCodePage = chcp 2>$null
@@ -12,7 +12,6 @@ $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ClaudeHome = Join-Path $env:USERPROFILE ".claude"
 $SkillsTarget = Join-Path $ClaudeHome "skills"
-$CommandsTarget = Join-Path $ClaudeHome "commands"
 
 # 1. 스킬 탐지
 $Skills = @()
@@ -118,7 +117,6 @@ Write-Host ""
 
 # 3. 등록 실행
 if (-not (Test-Path $SkillsTarget)) { New-Item -ItemType Directory -Path $SkillsTarget -Force | Out-Null }
-if (-not (Test-Path $CommandsTarget)) { New-Item -ItemType Directory -Path $CommandsTarget -Force | Out-Null }
 
 function Copy-WithConfirm {
     param(
@@ -157,19 +155,9 @@ foreach ($idx in $SelectedIndices) {
         }
     }
 
-    # commands/ 복사
-    $commandsSource = Join-Path $skill.Dir "commands"
-    if (Test-Path $commandsSource) {
-        Get-ChildItem -Path $commandsSource | ForEach-Object {
-            $dest = Join-Path $CommandsTarget $_.Name
-            $label = "commands\$($_.Name)"
-            Copy-WithConfirm -Source $_.FullName -Destination $dest -Label $label
-        }
-    }
 }
 
 # 4. 결과 출력
 Write-Host ""
 Write-Host "=== 등록 완료 ===" -ForegroundColor Green
-Write-Host "  skills  → $SkillsTarget"
-Write-Host "  commands → $CommandsTarget"
+Write-Host "  skills → $SkillsTarget"

@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # register-skills.sh
-# dhjkl123_skills 레포의 스킬을 ~/.claude/skills/ 및 ~/.claude/commands/ 에 등록하는 스크립트
+# dhjkl123_skills 레포의 스킬을 ~/.claude/skills/ 에 등록하는 스크립트
 
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_HOME="${HOME}/.claude"
 SKILLS_TARGET="${CLAUDE_HOME}/skills"
-COMMANDS_TARGET="${CLAUDE_HOME}/commands"
 
 # 색상/스타일 정의
 RESET=$'\033[0m'
@@ -149,7 +148,6 @@ echo ""
 
 # 3. 등록 실행
 mkdir -p "${SKILLS_TARGET}"
-mkdir -p "${COMMANDS_TARGET}"
 
 for idx in "${SELECTED_INDICES[@]}"; do
     skill_dir="${SKILL_DIRS[$idx]}"
@@ -192,33 +190,9 @@ for idx in "${SELECTED_INDICES[@]}"; do
         done
     fi
 
-    # commands/ 복사
-    if [[ -d "${skill_dir}commands" ]]; then
-        src="${skill_dir}commands"
-        for item in "${src}"/*; do
-            if [[ -e "${item}" ]]; then
-                base=$(basename "${item}")
-                dest="${COMMANDS_TARGET}/${base}"
-                if [[ -e "${dest}" ]]; then
-                    read -rp "  ${base} 이미 존재합니다. 덮어쓰시겠습니까? (y/N): " overwrite
-                    if [[ ! "${overwrite}" =~ ^[yY]$ ]]; then
-                        echo -e "  ${YELLOW}건너뜀: ${base}${RESET}"
-                        continue
-                    fi
-                fi
-                if [[ -d "${item}" ]]; then
-                    cp -r "${item}" "${COMMANDS_TARGET}/"
-                else
-                    cp "${item}" "${COMMANDS_TARGET}/"
-                fi
-                echo -e "  ${GREEN}commands/${base} → ~/.claude/commands/${base}${RESET}"
-            fi
-        done
-    fi
 done
 
 # 4. 결과 출력
 echo ""
 echo -e "${GREEN}${BOLD}=== 등록 완료 ===${RESET}"
-echo -e "  skills  → ${SKILLS_TARGET}"
-echo -e "  commands → ${COMMANDS_TARGET}"
+echo -e "  skills → ${SKILLS_TARGET}"
