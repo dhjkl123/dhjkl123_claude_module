@@ -1,10 +1,12 @@
 /**
  * 안티그래비티 테스트 완료 여부를 폴링하고, 완료시 결과를 저장하는 스크립트
  *
- * 사용법: node cdp-poll.js [--port 9222] [--output result.txt] [--interval 15] [--max-polls 120] [--beep]
+ * 사용법: node cdp-poll.js [--port 9222] [--output result.txt] [--interval 15] [--max-polls 120] [--beep] [--auto-approve] [--exit-on-approve]
  *
  * 완료 조건: Cancel 버튼 0개 + 텍스트 1000자 이상 + 2회 연속 동일 길이
  * --beep 플래그: 승인 필요(Always run/Allow) 감지 시 비프음 발생 (기본: 꺼짐)
+ * --auto-approve 플래그: "Always run" / "Always Allow" 버튼 자동 클릭 (기본: 꺼짐)
+ * --exit-on-approve 플래그: 승인 필요 감지 시 종료코드 3으로 종료 (사용자 확인 후 cdp-approve.js로 승인)
  */
 var fs = require('fs');
 var cdp = require('./cdp-client');
@@ -17,7 +19,9 @@ function parseArgs() {
     output: 'antigravity-test-result.txt',
     interval: 15000,
     maxPolls: 120,
-    beep: false
+    beep: false,
+    autoApprove: false,
+    exitOnApprove: false
   };
   for (var i = 0; i < args.length; i++) {
     if (args[i] === '--port' && args[i + 1]) { config.port = parseInt(args[i + 1], 10); i++; }
@@ -25,6 +29,8 @@ function parseArgs() {
     else if (args[i] === '--interval' && args[i + 1]) { config.interval = parseInt(args[i + 1], 10) * 1000; i++; }
     else if (args[i] === '--max-polls' && args[i + 1]) { config.maxPolls = parseInt(args[i + 1], 10); i++; }
     else if (args[i] === '--beep') { config.beep = true; }
+    else if (args[i] === '--auto-approve') { config.autoApprove = true; }
+    else if (args[i] === '--exit-on-approve') { config.exitOnApprove = true; }
   }
   return config;
 }
@@ -81,6 +87,12 @@ var READ_EXPRESSION =
   '  var text = chatArea.textContent || "";' +
   '  text = text.replace(/\\/\\* Copied from[\\s\\S]*?\\*\\//g, "");' +
   '  text = text.replace(/@media \\(prefers-color-scheme:[\\s\\S]*?\\}\\s*\\}/g, "");' +
+  '  text = text.replace(/\\.[a-zA-Z_][a-zA-Z0-9_-]*\\s*\\{[^}]*\\}/g, "");' +
+  '  text = text.replace(/\\.[a-zA-Z_][a-zA-Z0-9_-]*>[:\\s][^{]*\\{[^}]*\\}/g, "");' +
+  '  text = text.replace(/div:has\\([^)]*\\)[^{]*\\{[^}]*\\}/g, "");' +
+  '  text = text.replace(/table\\s+(th|td)[^{]*\\{[^}]*\\}/g, "");' +
+  '  text = text.replace(/Thought for \\d+s/g, "");' +
+  '  text = text.replace(/^[\\s\\n]+/, "");' +
   '  return text;' +
   '})()';
 
@@ -117,13 +129,41 @@ async function main() {
         (needsInput ? ' !! 승인필요' : '') +
         (isRunning ? ' [실행중]' : ' [대기]'));
 
-      // 승인 필요 상태가 새로 발생했을 때 알림
+      // 승인 필요 상태가 새로 발생했을 때 처리
       if (needsInput && !prevNeedsInput) {
-        if (config.beep) {
+        if (config.exitOnApprove) {
+          var approvalTypes = [];
+          if (status.alwaysRunCount > 0) approvalTypes.push('Always run (' + status.alwaysRunCount + '개)');
+          if (status.alwaysAllowCount > 0) approvalTypes.push('Always Allow (' + status.alwaysAllowCount + '개)');
+          console.log('\n[승인필요] ' + approvalTypes.join(', '));
+          console.log('[대기] 승인 후 폴링을 재시작하세요.');
+          if (config.beep) beep();
+          process.exit(3);
+        } else if (config.autoApprove) {
+          console.log('  >> 자동 승인 시도 중...');
+          try {
+            var approveResult = await cdp.evaluateOnce(
+              '(function(){' +
+              '  var clicked = [];' +
+              '  document.querySelectorAll("button").forEach(function(btn){' +
+              '    var t = (btn.textContent||"").trim();' +
+              '    if(t==="Always run"||t==="Always Allow"){' +
+              '      btn.click(); clicked.push(t);' +
+              '    }' +
+              '  });' +
+              '  return clicked.length > 0 ? "approved:" + clicked.join(",") : "no_buttons";' +
+              '})()',
+              { port: config.port, timeout: 5000 }
+            );
+            console.log('  >> 자동 승인 결과: ' + approveResult);
+          } catch (ae) {
+            console.log('  >> 자동 승인 실패: ' + ae.message);
+          }
+        } else if (config.beep) {
           beep();
           console.log('  >> 승인 필요 알림 (비프)');
         } else {
-          console.log('  >> 승인 필요 (비프음 끔, --beep 으로 활성화)');
+          console.log('  >> 승인 필요 (--auto-approve 또는 --beep 으로 활성화)');
         }
       }
       prevNeedsInput = needsInput;
