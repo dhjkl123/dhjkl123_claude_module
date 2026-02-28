@@ -1,0 +1,5 @@
+{
+  "name": "antigravity-test-runner",
+  "version": "1.0.0",
+  "description": "Google Antigravity IDE Browser Subagent를 통한 웹 프로젝트 통합테스트 자동화"
+}
