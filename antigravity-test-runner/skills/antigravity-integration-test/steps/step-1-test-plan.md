@@ -15,11 +15,15 @@ $PROJECT_ROOT/
    - 사용자가 파일 경로를 지정한 경우 → 해당 파일을 읽어서 `test-plan.md`로 복사
    - 사용자가 대화로 테스트 내용을 전달한 경우 → `test-plan.md`로 저장
    - 테스트 계획이 없으면 사용자에게 요청하고 대기
-3. 뷰포트 설정 프롬프트를 `viewport-prompt.md`로 저장합니다 (Step 3에서 사용).
+3. `test-plan.md`가 존재하는지 확인한 후 다음 단계로 진행합니다.
 
 **테스트 계획 형식 설정에 따라:**
 - `template`: `references/test-plan-template.md` 양식에 맞춰 `test-plan.md`를 구성합니다.
 - `custom`: 사용자가 제공한 양식을 그대로 `test-plan.md`에 저장합니다.
+
+**test-plan.md 작성 시 주의사항 (사용자 안내용):**
+- **"viewport"라는 단어는 사용하지 마세요.** 브라우저 서브에이전트가 viewport 변경을 시도하면서 페이지 이탈이 발생할 수 있습니다.
+- 스크린샷 해상도 지시는 `Take a screenshot at 1920x1080 resolution`으로 작성합니다.
 
 ---
 **다음 →** [Step 2: 로컬 서버 시작](step-2-server.md)
