@@ -5,8 +5,7 @@
 ```
 $PROJECT_ROOT/
 └── antigravity-integration-test/
-    ├── test-plan.md          # 테스트 계획 (사용자 제공)
-    └── viewport-prompt.md    # 뷰포트 설정 프롬프트 (자동 생성)
+    └── test-plan.md          # 테스트 계획 (사용자 제공)
 ```
 
 **진행 순서:**
@@ -26,4 +25,4 @@ $PROJECT_ROOT/
 - 스크린샷 해상도 지시는 `Take a screenshot at 1920x1080 resolution`으로 작성합니다.
 
 ---
-**다음 →** [Step 2: 로컬 서버 시작](step-2-server.md)
+**다음 →** [Step 2: 테스트 프롬프트 주입](step-2-inject.md)

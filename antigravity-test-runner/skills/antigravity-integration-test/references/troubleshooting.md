@@ -140,7 +140,7 @@ npx http-server . -p 8081 -c-1
 
 **해결**:
 ```bash
-cd ~/.claude/plugins/antigravity-test-runner/skills/antigravity-integration-test/scripts
+cd ~/.claude/skills/antigravity-integration-test/scripts
 npm install ws
 ```
 

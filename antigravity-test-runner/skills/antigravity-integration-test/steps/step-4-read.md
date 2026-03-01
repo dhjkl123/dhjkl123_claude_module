@@ -16,4 +16,4 @@ node "$SCRIPTS_DIR/cdp-read.js" --max-length 8000 --port $CDP_PORT
 - 내용이 비어있거나 너무 짧으면 (1000자 미만) 안티그래비티가 아직 실행 중일 수 있음 → Step 5로 돌아가 폴링 재실행
 
 ---
-**다음 →** [Step 7: 보고서 정리](step-7-report.md)
+**다음 →** [Step 5: 보고서 정리](step-5-report.md)
