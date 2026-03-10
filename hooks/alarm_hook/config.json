@@ -1,0 +1,9 @@
+{
+  "initialized": true,
+  "flash_taskbar": true,
+  "flash_on_every_response": true,
+  "teams_webhook_url": "",
+  "slack_webhook_url": "",
+  "discord_webhook_url": "",
+  "notification_message": "Claude Code 작업이 완료되었습니다."
+}
