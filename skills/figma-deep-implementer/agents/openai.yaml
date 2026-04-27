@@ -1,0 +1,7 @@
+interface:
+  display_name: "Figma Deep Implementer"
+  short_description: "Inspect nested Figma state layers before building fixed UI screens."
+  default_prompt: "Use $figma-deep-implementer with this Figma link and inspect nested state layers before implementing: <FIGMA_LINK>"
+
+policy:
+  allow_implicit_invocation: true

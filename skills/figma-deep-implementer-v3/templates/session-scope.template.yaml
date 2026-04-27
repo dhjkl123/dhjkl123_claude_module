@@ -1,0 +1,15 @@
+version: 1
+session:
+  session_id: ""
+  created_at: ""
+scope:
+  file_key: ""
+  scope_type: ""
+  root_node_id: ""
+  frame_node_ids: []
+  related_frame_rule: ""
+output:
+  mode: ""
+  artifact_root: ""
+assumptions: []
+open_scope_questions: []

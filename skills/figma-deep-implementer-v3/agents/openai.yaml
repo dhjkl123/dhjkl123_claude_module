@@ -1,0 +1,7 @@
+interface:
+  display_name: "Figma Deep Implementer V3"
+  short_description: "Turn Figma sections and frame sets into evidence-backed state specs and reviewed mocks."
+  default_prompt: "Use $figma-deep-implementer-v3 to collect frame inventory, evidence, state specs, missing information, and reviewed mocks from this Figma section or frame set."
+
+policy:
+  allow_implicit_invocation: true

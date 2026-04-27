@@ -1,0 +1,11 @@
+version: 1
+reviewed_spec_ref:
+  session_id: ""
+  reviewed_spec_path: ""
+mock_output:
+  mode: ""
+  artifact_root: ""
+  files: []
+states_rendered: []
+unresolved_assumptions: []
+blocking_review_items: []

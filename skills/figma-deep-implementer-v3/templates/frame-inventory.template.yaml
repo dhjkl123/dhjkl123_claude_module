@@ -1,0 +1,8 @@
+version: 1
+scope_ref:
+  session_id: ""
+  scope_id: ""
+inventory:
+  included_frames: []
+  excluded_nodes: []
+warnings: []

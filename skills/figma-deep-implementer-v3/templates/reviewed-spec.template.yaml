@@ -1,0 +1,17 @@
+version: 1
+source_refs:
+  session_id: ""
+  state_spec_path: ""
+  missing_information_path: ""
+review:
+  reviewer: ""
+  reviewed_at: ""
+decisions:
+  approved_state_ids: []
+  updated_state_ids: []
+  rejected_state_ids: []
+  resolved_missing_ids: []
+  unresolved_blocking_ids: []
+reviewed_spec:
+  surfaces: []
+  states: []

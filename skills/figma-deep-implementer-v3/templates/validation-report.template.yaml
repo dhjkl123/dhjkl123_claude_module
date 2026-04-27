@@ -1,0 +1,8 @@
+version: 1
+session_ref:
+  session_id: ""
+checks:
+  passed: []
+  failed: []
+remaining_blockers: []
+next_action: ""

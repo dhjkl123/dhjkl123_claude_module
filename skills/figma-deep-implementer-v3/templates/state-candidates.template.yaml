@@ -1,0 +1,17 @@
+version: 1
+evidence_ref:
+  session_id: ""
+surfaces:
+  - surface_id: ""
+    name: ""
+    frame_ids: []
+    surface_kind: ""
+state_candidates:
+  - candidate_id: ""
+    surface_id: ""
+    base_frame_id: ""
+    state_frame_id: ""
+    candidate_type: ""
+    confidence: ""
+    evidence_refs: []
+    alternative_interpretations: []

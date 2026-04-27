@@ -1,0 +1,21 @@
+version: 1
+inventory_ref:
+  session_id: ""
+  scope_id: ""
+frames:
+  - frame_id: ""
+    node_id: ""
+    name: ""
+    screenshot_path: ""
+    design_context:
+      summary: ""
+      visible_layers: []
+    prototype:
+      inbound: []
+      outbound: []
+    evidence:
+      - evidence_id: ""
+        type: ""
+        detail: ""
+        source_node_id: ""
+unresolved_evidence_gaps: []

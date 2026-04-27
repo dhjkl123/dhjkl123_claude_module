@@ -1,0 +1,14 @@
+version: 1
+state_ref:
+  session_id: ""
+missing_information:
+  - missing_id: ""
+    scope: ""
+    related_state_id: ""
+    kind: ""
+    severity: ""
+    blocking: false
+    question: ""
+    why_uncertain: []
+    allowed_fallback: []
+    recommended_default: ""
