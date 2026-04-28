@@ -1,6 +1,8 @@
 version: 1
 candidate_ref:
   session_id: ""
+  scope_id: ""
+spec_revision_id: ""
 surfaces:
   - surface_id: ""
     name: ""
@@ -11,8 +13,22 @@ states:
     base_frame_id: ""
     state_name: ""
     state_type: ""
-    triggers: []
+    interpretation_basis: ""
+    approval_refs: []
+    unresolved_dependency_refs: []
+    triggers:
+      - trigger_id: ""
+        trigger_name: ""
+        trigger_kind: ""
+        interpretation_basis: ""
+        approval_refs: []
+        unresolved_dependency_refs: []
+        source_evidence_refs: []
     confidence: ""
     evidence_refs: []
-    differences_from_base: []
-    open_questions: []
+    candidate_refs: []
+    differences_from_base:
+      - difference_id: ""
+        description: ""
+        candidate_refs: []
+        evidence_refs: []

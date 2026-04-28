@@ -31,8 +31,10 @@ Build a stable, scope-preserving list of included frames and explicitly record e
 13. For each included frame record, persist at least:
    - `scope_id`
    - `frame_id`
-   - source Figma `node_id`
+   - stable inventory `node_id`
+   - source Figma `figma_node_id`
    - `parent_node_id` when available
+   - `parent_figma_node_id` when available
    - `name`
    - `type`
    - `inclusion_basis`
@@ -42,8 +44,9 @@ Build a stable, scope-preserving list of included frames and explicitly record e
 14. For each excluded candidate record, persist at least:
    - `scope_id`
    - `node_id`
-   - source Figma `node_id`
+   - source Figma `figma_node_id`
    - `parent_node_id` or `parent_frame_id` when available
+   - `parent_figma_node_id` when available
    - `name`
    - `type`
    - `reason_code`

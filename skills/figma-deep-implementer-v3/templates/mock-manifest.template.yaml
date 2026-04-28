@@ -1,11 +1,44 @@
 version: 1
-reviewed_spec_ref:
+session_ref:
   session_id: ""
-  reviewed_spec_path: ""
-mock_output:
-  mode: ""
-  artifact_root: ""
-  files: []
-states_rendered: []
-unresolved_assumptions: []
+  scope_id: ""
+output_mode: ""
+spec_revision_id: ""
+spec_source:
+  source_type: ""
+  source_path: ""
+  applies_to_current_revision_only: true
+files:
+  - mock_id: ""
+    status: ""
+    artifact_type: web-html-css-js
+    artifact_path: ""
+    entry_path: ""
+    file_role: ""
+    source_type: ""
+    source_spec_path: ""
+    spec_revision_id: ""
+    viewport_specific: false
+    viewport_name: ""
+    rendered_state_ids: []
+    unresolved_assumptions: []
+    omitted_state_ids: []
+    omission_reason: ""
+    review_checkpoint_ids: []
+    implementation_notes: []
+    source_to_implementation_mappings:
+      - mapping_id: ""
+        source_node_id: ""
+        source_layout_ref: ""
+        source_fill_ref: ""
+        source_text_style_ref: ""
+        final_region_ref: ""
+        final_css_selectors: []
+        final_css_values: []
+        uses_approved_fallback: false
+        fallback_detail:
+          affected_property: ""
+          unresolved_reason: ""
+          fallback_value: ""
+          approval_ref: ""
 blocking_review_items: []

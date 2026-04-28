@@ -1,17 +1,29 @@
 version: 1
 evidence_ref:
   session_id: ""
+  scope_id: ""
 surfaces:
   - surface_id: ""
     name: ""
     frame_ids: []
     surface_kind: ""
+    completeness_state: ""
 state_candidates:
   - candidate_id: ""
     surface_id: ""
     base_frame_id: ""
     state_frame_id: ""
     candidate_type: ""
+    classification_status: ""
     confidence: ""
-    evidence_refs: []
-    alternative_interpretations: []
+    supporting_evidence_refs: []
+    conflicting_evidence_refs: []
+    inventory_ref: ""
+    evidence_ref: ""
+    inference_note: ""
+    missing_info_refs: []
+    approval_required: false
+    alternative_interpretations:
+      - alternative_type: ""
+        why_not_primary: ""
+        required_evidence_to_resolve: []

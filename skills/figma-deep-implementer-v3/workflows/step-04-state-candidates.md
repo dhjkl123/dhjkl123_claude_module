@@ -42,7 +42,7 @@ Normalize frames into surfaces and derive candidate states before confirmation, 
    - `inventory_ref`
    - `evidence_ref`
    - `inference_note`
-   - `missing_info`
+   - `missing_info_refs`
    - `approval_required` when unresolved evidence would block safe downstream interpretation
 9. Keep candidate evidence and missing information distinct.
    - do not store unresolved evidence only as reduced confidence

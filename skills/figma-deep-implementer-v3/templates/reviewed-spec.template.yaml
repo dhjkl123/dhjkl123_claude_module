@@ -3,15 +3,32 @@ source_refs:
   session_id: ""
   state_spec_path: ""
   missing_information_path: ""
+spec_revision_id: ""
 review:
   reviewer: ""
   reviewed_at: ""
+  review_status: ""
+  supersedes_spec_revision_id: ""
+  review_log_checkpoint_ids: []
 decisions:
   approved_state_ids: []
   updated_state_ids: []
   rejected_state_ids: []
-  resolved_missing_ids: []
+  resolved_missing_info_ids: []
   unresolved_blocking_ids: []
+  unresolved_material_gap_ids: []
 reviewed_spec:
-  surfaces: []
-  states: []
+  surfaces:
+    - surface_id: ""
+      source_surface_refs: []
+  states:
+    - state_id: ""
+      source_state_refs: []
+      source_candidate_refs: []
+      source_evidence_refs: []
+      triggers:
+        - trigger_id: ""
+          source_trigger_refs: []
+          source_candidate_refs: []
+          source_evidence_refs: []
+          unresolved_dependency_refs: []

@@ -1,8 +1,21 @@
 version: 1
 session_ref:
   session_id: ""
+  scope_id: ""
+spec_revision_id: ""
+output_mode: ""
 checks:
   passed: []
   failed: []
+visual_mismatches:
+  - mismatch_id: ""
+    severity: ""
+    source_ref: ""
+    artifact_ref: ""
+    category: ""
+    expected: ""
+    actual: ""
+    impact: ""
+    blocks_reviewed: false
 remaining_blockers: []
 next_action: ""

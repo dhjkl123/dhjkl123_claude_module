@@ -1,10 +1,15 @@
 version: 1
 state_ref:
   session_id: ""
+  scope_id: ""
+spec_revision_id: ""
 missing_information:
-  - missing_id: ""
+  - missing_info_id: ""
+    source_gap_refs: []
     scope: ""
-    related_state_id: ""
+    blocked_refs: []
+    candidate_refs: []
+    evidence_refs: []
     kind: ""
     severity: ""
     blocking: false

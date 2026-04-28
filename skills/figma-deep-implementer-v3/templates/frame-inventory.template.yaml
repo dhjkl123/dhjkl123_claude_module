@@ -3,6 +3,34 @@ scope_ref:
   session_id: ""
   scope_id: ""
 inventory:
-  included_frames: []
-  excluded_nodes: []
-warnings: []
+  included_frames:
+    - frame_id: ""
+      node_id: ""
+      figma_node_id: ""
+      parent_node_id: ""
+      parent_figma_node_id: ""
+      name: ""
+      type: ""
+      inclusion_basis: ""
+      evidence_basis: []
+      derived_from: []
+      prototype_edge_provenance: []
+  excluded_nodes:
+    - node_id: ""
+      figma_node_id: ""
+      parent_node_id: ""
+      parent_frame_id: ""
+      parent_figma_node_id: ""
+      name: ""
+      type: ""
+      reason_code: ""
+      reason_detail: ""
+      applied_contract_rule: ""
+      evidence_basis: []
+      reconsideration_trigger: ""
+warnings:
+  - warning_code: ""
+    severity: ""
+    affected_ids: []
+    blocking_next_step: false
+    detail: ""

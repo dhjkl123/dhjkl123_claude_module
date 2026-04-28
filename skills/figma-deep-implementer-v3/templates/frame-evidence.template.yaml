@@ -5,17 +5,131 @@ inventory_ref:
 frames:
   - frame_id: ""
     node_id: ""
+    figma_node_id: ""
     name: ""
     screenshot_path: ""
+    viewport:
+      width: 0
+      height: 0
+      device_hint: ""
     design_context:
       summary: ""
       visible_layers: []
+      component_refs: []
+      variant_refs: []
+      annotation_refs: []
+      layout_regions:
+        - region_id: ""
+          name: ""
+          node_id: ""
+          figma_node_id: ""
+          role: ""
+          bounds:
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          padding:
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+          gap: 0
+          corner_radius: 0
+          border:
+            width: 0
+            color: ""
+          fill:
+            color: ""
+            opacity: 1
+          shadow_refs: []
+          token_refs: []
+      text_styles:
+        - text_id: ""
+          node_id: ""
+          figma_node_id: ""
+          content: ""
+          font_family: ""
+          font_size: 0
+          font_weight: 0
+          line_height: 0
+          letter_spacing: 0
+          text_color: ""
+          text_align: ""
+          token_refs: []
+      asset_refs:
+        - asset_id: ""
+          node_id: ""
+          figma_node_id: ""
+          asset_kind: ""
+          asset_name: ""
+          export_path: ""
+          source_ref: ""
+          token_refs: []
+      color_tokens:
+        - token_id: ""
+          token_name: ""
+          token_value: ""
+      typography_tokens:
+        - token_id: ""
+          token_name: ""
+          font_family: ""
+          font_size: 0
+          font_weight: 0
+          line_height: 0
     prototype:
-      inbound: []
-      outbound: []
-    evidence:
+      inbound:
+        - connection_id: ""
+          source_frame_id: ""
+          source_node_id: ""
+          source_figma_node_id: ""
+          destination_frame_id: ""
+          destination_node_id: ""
+          destination_figma_node_id: ""
+          trigger: ""
+          action: ""
+          transition: ""
+          interaction_metadata: {}
+          source_evidence_refs: []
+      outbound:
+        - connection_id: ""
+          source_frame_id: ""
+          source_node_id: ""
+          source_figma_node_id: ""
+          destination_frame_id: ""
+          destination_node_id: ""
+          destination_figma_node_id: ""
+          trigger: ""
+          action: ""
+          transition: ""
+          interaction_metadata: {}
+          source_evidence_refs: []
+    confirmed_assertions:
       - evidence_id: ""
-        type: ""
-        detail: ""
+        scope_id: ""
+        frame_id: ""
+        node_id: ""
+        figma_node_id: ""
+        connection_ref: ""
+        annotation_ref: ""
+        layer_ref: ""
+        source_kind: ""
+        supporting_refs: []
+        trigger_confirmed: false
+        trigger_source_ref: ""
+        observed_digest: ""
         source_node_id: ""
-unresolved_evidence_gaps: []
+    evidence_gaps:
+      - gap_id: ""
+        scope_id: ""
+        frame_id: ""
+        affected_refs: []
+        missing_from: ""
+        blocked_by: ""
+        needed_followup: ""
+        approval_required_if_unresolved: false
+    state_differences:
+      - difference_id: ""
+        compared_to_frame_id: ""
+        changed_properties: []
+        evidence_refs: []

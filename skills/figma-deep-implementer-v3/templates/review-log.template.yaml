@@ -1,0 +1,35 @@
+version: 1
+session_ref:
+  session_id: ""
+  scope_id: ""
+output_mode: ""
+achieved_mode: ""
+spec_revision_id: ""
+final_status: ""
+blocking_reason: ""
+checkpoints:
+  - checkpoint_id: ""
+    checkpoint_type: ""
+    decision: ""
+    requested_mode: ""
+    achieved_mode_after_decision: ""
+    spec_revision_id: ""
+    affected_artifacts: []
+    related_ids: []
+    notes: ""
+    decided_by: ""
+    decided_at: ""
+reviewed_path_status:
+  reviewed_spec_current: false
+  reviewed_spec_current_revision: ""
+  current_reviewed_mock_id: ""
+  reviewed_mock_approved: false
+  reviewed_mock_approved_for_spec_revision_id: ""
+  unresolved_blocking_review_item_ids: []
+  unresolved_material_gap_ids: []
+reviewed_revision_history:
+  - spec_revision_id: ""
+    lifecycle_status: ""
+    replaced_by_spec_revision_id: ""
+    change_recorded_at: ""
+    reason: ""

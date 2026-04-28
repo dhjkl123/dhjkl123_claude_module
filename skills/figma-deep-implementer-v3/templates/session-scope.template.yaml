@@ -3,13 +3,19 @@ session:
   session_id: ""
   created_at: ""
 scope:
+  scope_id: ""
+  scope_state: temporary
   file_key: ""
   scope_type: ""
-  root_node_id: ""
+  section_node_id: ""
+  flow_start_frame_node_id: ""
   frame_node_ids: []
-  related_frame_rule: ""
+  explicit_related_frame_basis: []
 output:
   mode: ""
   artifact_root: ""
+  mock_artifact_type: web-html-css-js
+  primary_viewport: ""
+spec_revision_id: ""
 assumptions: []
 open_scope_questions: []
